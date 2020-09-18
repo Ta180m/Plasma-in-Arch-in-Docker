@@ -1,7 +1,7 @@
 ARG VERSION
 
 FROM archlinux:${VERSION:-latest}
-LABEL MAINTAINER="DCsunset"
+LABEL MAINTAINER="Ta180m"
 
 ENV noVNC_version=1.2.0
 ENV websockify_version=0.9.0
@@ -12,10 +12,8 @@ ENV websockify_version=0.9.0
 # COPY ./noVNC-${noVNC_version}.tar.gz /noVNC.tar.gz
 
 # Install apps
-RUN pacman -Syu --noconfirm plasma-meta \
-	kde-accessibility-meta kde-system-meta konsole \
-	chromium vim wget tigervnc xorg-server \
-	python-numpy python-setuptools \
+RUN	pacman -Syu --noconfirm plasma-desktop kde-system-meta konsole \
+	firefox wget tigervnc xorg-server python-numpy python-setuptools \
 	&& pacman -Scc --noconfirm
 
 # Install noVNC
